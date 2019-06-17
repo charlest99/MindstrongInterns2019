@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flipping Images Task</title>
+  <style type="text/css">
+  	html, body #wrap {
+  		width: 1200px;
+  		margin: 0px;
+  		padding: 10px;
+  	}
+  </style>
+</head>
+<body>
+
+<div id="wrap">
+<img src="download.jpg" onclick="setInterval(flipMe, 300)" id="ImageToFlip">
+</div>
+
+
+<script>
+	count = 0
+	function flipMe(){
+		if(count%2 == 0){
+			document.getElementById("ImageToFlip").style.filter = "contrast(20000%)";
+			count = count+1;
+		}
+		else{
+			document.getElementById("ImageToFlip").style.filter = "contrast(100%)";
+			count = count+1;
+		}
+
+	}
+
+
+</script>
+
+</body>
+</html>

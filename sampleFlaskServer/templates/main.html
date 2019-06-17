@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+<title>EEG Calibration Tasks</title>
+<h1>Calibration Tasks</h1>
+<style type="text/css">
+html, body #container
+{
+width: 400px;
+margin: 30px;
+padding: 0px;
+}
+</style>
+</head>
+
+
+<div id="container">
+
+<canvas href=”/contrast_img/” id="Contrast" width="260" height="80" onclick="openContrastFile()"></canvas>
+<canvas id="Tapper" width="260" height="80" onclick="openTappingFile()"></canvas>
+
+</div>
+
+
+
+<script>
+contrastCanvas = document.getElementById("Contrast")
+contrastctx = contrastCanvas.getContext("2d")
+contrastctx.fillStyle = "#ff0000"
+contrastctx.fillRect(0,0,contrastCanvas.width, contrastCanvas.height)
+contrastctx.fillStyle = "#ffffff"
+contrastctx.font = "27pt Times New Roman";
+contrastctx.fillText("Contrast Images",10,50);
+
+
+tapCanvas = document.getElementById("Tapper")
+tapctx = tapCanvas.getContext("2d")
+tapctx.fillStyle = "#009dff"
+tapctx.fillRect(0,0,tapCanvas.width, tapCanvas.height)
+tapctx.fillStyle = "#ffffff"
+tapctx.font = "27pt Times New Roman";
+tapctx.fillText("Tapping Test",34,50);
+
+function openContrastFile() {
+	alert('Contrast')
+}
+
+function openTappingFile() {
+	alert('Tapping')
+}
+</script>
+
+</body>
+</html>

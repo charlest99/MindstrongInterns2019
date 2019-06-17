@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Go No Go Task</title>
+</head>
+<body>
+<style type="text/css">
+	html, body #div1 {
+		width: 600px;
+		margin: 50px;
+	}
+</style>
+
+<div id="div1">
+<canvas id="myCanvas" width="300" height="300" onclick="timeit()">
+</canvas>
+</div>
+
+<script>
+var changetime = Math.floor(Math.random() * 6000) + 2500
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var div = document.getElementById("myDIV")
+var num = Math.round(Math.random()) == 1
+
+if (num == 1) {
+	var colorStyle = "FF0000"
+}
+else if (num == 0) {
+	var colorStyle = "009DFF"
+}
+
+
+ctx.fillStyle = "#FF0000";
+ctx.color = "red";
+ctx.fillRect(0, 0, c.width, c.height);
+setTimeout(function() {ctx.fillStyle = colorStyle; ctx.fillRect(0, 0, c.width, c.height); ctx.color = "green";
+ts = new Date().valueOf();}, changetime);
+
+
+
+function timeit() {
+	if (ctx.color == "red") {
+		alert("Too Early")
+	}
+	else{
+    ts2 = new Date().valueOf();
+		alert(ts2 - ts - 100 + " ms");
+	}
+}
+
+</script>
+
+
+</body>
+</html>
