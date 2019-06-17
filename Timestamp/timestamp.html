@@ -1,0 +1,25 @@
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<script>
+function sendTimestamp () {
+var ts = new Date().valueOf();
+
+
+$.ajax({
+    type: "POST",
+    url: "http://192.168.31.33/timestamp",
+    // The key needs to match your method's input parameter (case-sensitive).
+    data: JSON.stringify({ timestamp: ts }),
+    contentType: "text/plain",
+    dataType: "json",
+    success: function(data){alert(data);},
+    failure: function(errMsg) {
+        alert(errMsg);
+    }
+});
+}
+
+</script>
