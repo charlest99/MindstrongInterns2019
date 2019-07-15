@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Go No Go Task</title>
+
+	<style type="text/css">
+  	* {
+        margin: 0;
+        padding: 0;
+        }
+
+  	#wrap {
+        display: grid;
+        width = 400px;
+    	height = 300px;
+
+        }
+    #flip{
+    	width = 300px;
+    	height = 300px;
+    }
+    #eeg {
+            display: grid;
+            height: 100%;
+    }
+    .topnav {
+  		overflow: hidden;
+ 		background-color: #7dcde0;
+	}
+
+	.topnav a {
+	  float: left;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
+	}
+
+	.topnav a:hover {
+	  background-color: #FFB6C1;
+	  color: black;
+	}
+
+	.topnav a.active {
+	  background-color: #d31c5b;
+	  color: white;
+	}
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+  <meta http-equiv="Refresh" content="300;url={{ url_for('audioodballinstructions') }}">
+</head>
+<body onload="setInterval(startTest, 1000)">
+<div class="topnav">
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('hicontrastinstructions') }}">Contrast Test</a>
+  <a class="active" href="{{ url_for('gonogoinstructions') }}">Go No Go</a>
+  <a href="{{ url_for('audioodballinstructions') }}">Audio Test</a>
+  <a href="{{ url_for('indexPageinstructions') }}">Question Bot</a>
+  <a href="{{ url_for('helpme') }}">Help</a>
+</div>
+<div id="eeg"></div>
+<p align='center'>When I flash green, tap! When I flash red, do nothing.
+<p align='center' id='indicatorText'>Starting test...</p>
+<div id="wrap" align="center">
+<img src="/static/black.jpg" id='Flip' onclick="changeText()" align="center" width = "550" height = "550">
+</div>
+<br>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+	var netDelay = -1
+	function sendTimestamp(x) {
+		var ts = new Date().valueOf();
+		var mess = x
+        var username = document.getElementById("userText").innerHTML;
+		$.ajax({
+		    type: "POST",
+		    url: "http://192.168.31.28/timestamp",
+		    // The key needs to match your method's input parameter (case-sensitive).
+		    data: JSON.stringify({ timestamp: ts, netdelay: netDelay, misc: mess, user:username}), //add netdelay as a parameter?
+		    contentType: "text/plain",
+		    dataType: "json",
+		    failure: function(errMsg) {
+		        alert(errMsg);
+		    },
+		    complete: function(data){
+			    netDelay = new Date().valueOf() - ts;
+			    console.log("netdelay!! " + netDelay );
+			    console.log(data);
+			}
+		});
+	}
+
+	var i = 0;
+    function startTest(){
+        if(i%2 == 0){
+            document.getElementById("Flip").src = "/static/black.jpg";
+            document.getElementById("indicatorText").innerHTML = "Get ready!";
+            //sendTimestamp("change to black");
+        }
+        else{
+        	var x = Math.round(7*Math.random());
+
+        	if(x == 0){
+        		document.getElementById("Flip").src = "/static/red.jpg";
+        		//sendTimestamp("change to red");
+        	}
+        	else{
+        		document.getElementById("Flip").src = "/static/green.jpg";
+        		//sendTimestamp("change to green");
+        	}
+        }
+        i++;
+
+    }
+
+    function changeText(){
+    	x = document.getElementById("Flip").getAttribute('src');
+    	if (x == "/static/black.jpg"){
+    		document.getElementById("indicatorText").innerHTML = "Get ready!";
+    		sendTimestamp("early click");
+    	}
+    	else if (x == "/static/green.jpg"){
+    		document.getElementById("indicatorText").innerHTML = "Good Click!";
+    		sendTimestamp("good click");
+    	}
+    	else{
+    		document.getElementById("indicatorText").innerHTML = "Bad Click!";
+    		sendTimestamp("bad click");
+    	}
+    }
+
+</script>
+<p id='userText'>{{user}}</p>
+
+
+</body>
+</html>

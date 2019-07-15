@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contrast intstructions</title>
+
+	<style type="text/css">
+  	* {
+        margin: 0;
+        padding: 0;
+        }
+
+  	#wrap {
+        display: grid;
+        width = 400px;
+    	height = 300px;
+
+        }
+    #flip{
+    	width = 300px;
+    	height = 300px;
+    }
+    #eeg {
+            display: grid;
+            height: 100%;
+    }
+    .topnav {
+  		overflow: hidden;
+ 		background-color: #7dcde0;
+	}
+
+	.topnav a {
+	  float: left;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
+	}
+
+	.topnav a:hover {
+	  background-color: #FFB6C1;
+	  color: black;
+	}
+
+	.topnav a.active {
+	  background-color: #d31c5b;
+	  color: white;
+	}
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+</head>
+<body>
+<div class="topnav">
+  <a href="{{ url_for('index') }}">Home</a>
+  <a class="active"  href="{{ url_for('hicontrastinstructions') }}">Contrast Test</a>
+  <a href="{{ url_for('audioodballinstructions') }}">Audio Test</a>
+  <a href="{{ url_for('indexPageinstructions') }}">Question Bot</a>
+  <a href="{{ url_for('helpme') }}">Help</a>
+</div>
+
+<p>The following test will involve watching an image flicker back and forth. The image will flicker for around 4 minutes, after which the site will automatically direct you to the next task. Click the link below to begin.</p>
+<a href="{{ url_for('hicontrast') }}">Contrast Test</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<p id='userText'>{{user}}</p>
+
+
+</body>
+</html>
