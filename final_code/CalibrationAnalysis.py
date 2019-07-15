@@ -37,7 +37,8 @@ subject7  = {'eegFile':'eeg0007_raw.edf', 'logFile':'EEG_0007.csv', 'shiftIndex'
 subject8  = {'eegFile':'eeg0008_raw.edf', 'logFile':'EEG_0008.csv', 'shiftIndex':0, 'bias':100, 'badByte':0}
 #Good VEP, good audio, need bias
 
-
+subject9  = {'eegFile':'eeg0009_raw.edf', 'logFile':'EEG_0009.csv', 'shiftIndex':1, 'bias':100, 'badByte':0, 'shft_ind':0}
+#Great VEP, drift on C4 channel with audio
 
 def importFiles(edf, log):
     montage = mne.channels.read_montage('standard_1020')
