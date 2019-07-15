@@ -11,30 +11,30 @@ from datetime import datetime
 from sklearn import linear_model
 
 
-subject1 = {'eegFile':'eeg0001_raw.edf', 'logFile':'EEG_0001.csv', 'shiftIndex':2, 'bias':150, 'badByte':4}
+subject1 = {'eegFile':'eeg0001_raw.edf', 'logFile':'EEG_0001.csv', 'shiftIndex':2, 'bias':150, 'badByte':4, 'shft_ind':2}
 #Good VEP signal, good audio evoked except for major drift in 02 channel, and bad bias shift
 
-subject2 = {'eegFile':'eeg0002_raw.edf', 'logFile':'EEG_0002.csv', 'shiftIndex':7, 'bias':150, 'badByte':4}
+subject2 = {'eegFile':'eeg0002_raw.edf', 'logFile':'EEG_0002.csv', 'shiftIndex':7, 'bias':150, 'badByte':4, 'shft_ind':2}
 #very minimal VEP, a lot of drift across most channels. OK audio potential, still a lot of drift
 
-subject3 = {'eegFile':'eeg0003_raw.edf', 'logFile':'EEG_0003.csv', 'shiftIndex':0, 'bias':300, 'badByte':4}
+subject3 = {'eegFile':'eeg0003_raw.edf', 'logFile':'EEG_0003.csv', 'shiftIndex':0, 'bias':300, 'badByte':4, 'shft_ind':2}
 #Very weak but present VEP with F4 channel drift, but good audio evoked 
 
-subject4 = {'eegFile':'eeg0004_raw.edf', 'logFile':'EEG_0004.csv', 'shiftIndex':0, 'bias':150, 'badByte':4}
+subject4 = {'eegFile':'eeg0004_raw.edf', 'logFile':'EEG_0004.csv', 'shiftIndex':0, 'bias':150, 'badByte':4, 'shft_ind':2}
 #SUBJECT4 USE picks=['P3', 'C3', 'F3', 'Fz', 'F4', 'C4', 'P4', 'Cz', 'CM', 'F7', 'A1'],  IN PLOT PARAMETER
 #Weak but present VEP when plot parameter picks used as some channels had horrible drift.
 #Good audio evoked under the same plot parameter
 
-subject5 = {'eegFile':'eeg0005_raw.edf', 'logFile':'EEG_0005.csv', 'shiftIndex':0, 'bias':200, 'badByte':0}
+subject5 = {'eegFile':'eeg0005_raw.edf', 'logFile':'EEG_0005.csv', 'shiftIndex':0, 'bias':200, 'badByte':0, 'shft_ind':2}
 #Great VEP, besides major drift in A1 channel. Good audio evoked with drift towards the end of the 500ms window
 
-subject6 = {'eegFile':'eeg0006_raw.edf', 'logFile':'EEG_0006.csv', 'shiftIndex':0, 'bias':200, 'badByte':0}
+subject6 = {'eegFile':'eeg0006_raw.edf', 'logFile':'EEG_0006.csv', 'shiftIndex':0, 'bias':200, 'badByte':0, 'shft_ind':2}
 #good VEP early, but major drift right after the P100. good audio evoked potential
 
-subject7  = {'eegFile':'eeg0007_raw.edf', 'logFile':'EEG_0007.csv', 'shiftIndex':0, 'bias':100, 'badByte':0}
+subject7  = {'eegFile':'eeg0007_raw.edf', 'logFile':'EEG_0007.csv', 'shiftIndex':0, 'bias':100, 'badByte':0, 'shft_ind':2}
 #VEP messed up, weak audio potential
 
-subject8  = {'eegFile':'eeg0008_raw.edf', 'logFile':'EEG_0008.csv', 'shiftIndex':0, 'bias':100, 'badByte':0}
+subject8  = {'eegFile':'eeg0008_raw.edf', 'logFile':'EEG_0008.csv', 'shiftIndex':0, 'bias':100, 'badByte':0, 'shft_ind':2}
 #Good VEP, good audio, need bias
 
 subject9  = {'eegFile':'eeg0009_raw.edf', 'logFile':'EEG_0009.csv', 'shiftIndex':1, 'bias':100, 'badByte':0, 'shft_ind':0}
@@ -76,9 +76,9 @@ def parseEvents(raw):
     #eventdf =eventdf[:340]
     return eventdf, event_start_ts
 
-def findMatches(eventdf, logdf, byte):
+def findMatches(eventdf, logdf, byte, shft_ind):
     window = 10000 # +/-, in milliseconds
-    shift_idx = 2
+    shift_idx = shft_ind
     match_inds = []
 
     #ADD COMPARE FUNCTION TO RETURN TRUE IF BYTECODES ARE EXACTLY EQUAL OR OFF BY FOUR
