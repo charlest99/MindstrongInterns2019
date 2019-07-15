@@ -1,0 +1,9 @@
+Discovery app:
+  Before experiment begins:
+    set the stream to 192.168.31.28/event
+    ensure triggers are being sent by typing in the google search bar with the phone, then checking log at 192.168.31.28/log.csv
+  After experiment:
+    switch to MindstrongGuest to upload files from discovery
+    do not log out until Bob confirms file upload
+    
+  
