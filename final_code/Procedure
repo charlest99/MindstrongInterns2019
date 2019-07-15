@@ -1,0 +1,151 @@
+Operationalization
+
+Important notes to do once before entire experiment: 
+- Activate each phone with bat cave
+- Erase database of data taken while testing equipment (clear log, remove data from desktop, etc)
+- Everything should be on EEG wifi network (pw: ForEEGMindstrong!)
+
+Materials:
+- Alcohol wipes for face
+- Electrode head diagram
+- Printed Consent forms
+- Binder for consent forms and with already printed blank consent forms
+- Locked cabinet for consent forms
+- Pen for consent form 
+- Isopropanol for cleaning EEG
+- Batteries
+- Android phone chargers
+- Android phones
+- EEG Headset
+- Laptop for demographic form and possibly screening form
+- Laptop with TeamViewer downloaded for mirroring PC - monitoring EEG signals
+- Locked chair
+- DSI streamer PC monitor in EEG room with TeamViewer downloaded
+- Apple mouse for DSI streamer monitor
+- Mouse charger for apple mouse
+- ESP and raspberry pi in EEG room
+- Hairdryer
+- Fan
+- EOG stickers
+- EOG cord
+
+1. Equipment Setup (10 mins)
+  - Take out binder of consent forms from locked cabinet.
+  - Androids must be fully charged before each participant enters - chargers are in GABA room
+    - Ensure androids are on EEG wifi (pw: ForEEGMindstrong!)
+  - EEG headset must be powered on and fully charged before each participant enters - charged battery is plugged into an outlet in the back wall of GABA room; battery goes in left square compartment located on the back of headset
+  - Unlock desktop - pw is ForEEG!
+  - Ensure mouse is connected to computer
+    - If not working - check if the mouse is turned on by turning it around and making sure the button is slid up to show green
+    - If still not working - get mouse charger and plug in mouse to computer to charge
+    - If still not working - use keyboard to remove mouse device from bluetooth devices and reconnect (press “command”, type “bluetooth”, press return on “bluetooth and other devices settings”, hit tab until you reach “Magic Keyboard with Numeric Keypad,” hit down arrow until you reach “Office Mouse,” press return, press tab to select “Remove device”, then press return again; after letting it sit for a little this way, press the up arrow and shift + tab to select “Add bluetooth or other device”, press return, and then wait for mouse to appear on screen to connect.
+  - Create folder titled with subject’s code (eeg000#) on desktop
+- Open DSI streamer on monitor (double click on DSI-Streamer-v.1.08.44 folder in middle of desktop, then double click on DSI-Streamer-v.1.08.44 - has purple sun icon)
+- Click on “Data Source” tab (leftmost tab on top of screen) and ensure port is COM5
+- Click on “Record” tab (located right of “Data Source” tab) and type in file name, unique to each subject - format of file name is subject’s code (eeg000#)
+- Ensure PC located in EEG Room is mirroring onto a Mac located in GABA room via TeamViewer
+- Ensure fan is plugged in, turned on low
+- Ensure enough alcohol wipes are present next to EEG headset
+- Ensure EOG stickers are present next to EEG headset
+- Ensure electrode diagram is present next to EEG headset
+- Log into Mindstrong app
+  - Pc: KET; username: eeg000#; pw: 000#; dev tab; realtime demo → http://192.168.31.28/event; ensure log sees this connection as an event
+- Create new user ID in Mindstrong portal for each new subject
+- Ensure phones not being used are off 
+
+
+2. Greet subjects (20 mins):
+  - When subject arrives, have someone waiting in the lobby (preferably 5ish minutes early) with a name tag on. The subject should have already been informed, via confirmation email, of who they are expecting to meet at the lobby, the evening before their appointment. 
+    - Template greeting: “Hi ____. My name is ______, and I will be helping you today. Thank you so much for agreeing to participate in our study.”
+    - As you go up in the elevator, go through quick overview of entire experiment
+  - The proctor should take them into the elevator, then lead them to EEG room upstairs and have them sit down, read, and fill out their consent forms to allow time for finishing and cleaning up after the last subject. 
+  - The proctor should inform themselves on whether or not the subject has taken the screening
+  - The subject will then take the screening and demographic google form on laptop. If the subject hasn’t filled out screening form, make sure they fill that form out before filling out demographic form. 
+    - Make sure to fill out demographic form with their subject code. 
+  - Consent form - sign it and place post-it note with subject code on back of form, then place in file cabinet in GABA room
+  - When the consent, screening and demographic forms have been signed, the subject has had a chance to ask questions, and the EEG room is clear, the proctor should take the consent forms to binder placed in GABA room to have them filed, then walk the subject into the EEG room, have them sit on the white bucket chair and give the subject a test phone and allow themselves to familiarize themselves with it while the proctor adjusts the EEG on the subject. 
+    - Position subject so that they aren’t facing monitor and seeing EEG signals
+  - Ask them what size phone they prefer.
+    - Ensure other phone not being used is turned off
+    - Click on “Dev,” click on “Realtime Demo Server,” and ensure url is same as url that subject will go on
+    - Enable phone and look at the log to see that event was triggered by correct phone
+  - Take their phone from them and place it in GABA room so that it does not disturb them during the study or have them put it on their desk
+
+3. Apply EEG (15 mins) - explain everything you’re doing as you set up EEG:
+  - Ensure no main lobe earrings are on and that hair is down; note if  any product in hair.
+  - Ensure subject does not have anything to chew in their mouth
+  - Use alcohol wipes to clean sides of face for EOG electrodes
+  - Attach EOG cords to EOG stickers and place on temples
+  - Connect EOG cord to X1 port on the back of headset
+  - Wear headset back to front of head and ensure forehead strap sits against forehead and that arrow on center of forehead strap is at the center of the forehead above the nasal bridge
+  - Ensure no hair is under forehead strap
+  - Push knob in back of headset in and rotate the knob clockwise to tighten headset - should fit snugly but comfortably - continually ask subjects how they are feeling as you tighten
+  - Once strap is tightened, push top of headset down so that sensors expand outward and all electrodes touch scalp
+  - Take cables located on either side of the top of headset and pull to ensure headset fits snugly on top; once tightened enough, push stopper on cables toward the headset to ensure headset does not get looser
+  - All sensors on head should not be touching any other parts of headset, only scalp
+  - Push T3 and T4 sensors forward or back to align with ear hole
+  - Fz sensor should be aligned with arrow on front strap
+  - Attach ear clip sensors to earlobes
+  - Use utility tool to work each sensor through the subject’s hair - make sure to hold sensor down while pulling out the tool
+  - Turn EEG headset on
+  - Click on “Data Source” tab, ensure port is going to COM5, and click on “Connect” - the circle below should turn yellow as it calibrates then green once the headset is connected wirelessly
+  - Press “Play” if not already automatically selected by software
+  - Click on “Montage” tab on top of DSI Streamer screen to see how well each electrode is sensing signals - green means good, yellow means almost there, and red means needs to be fixed - what works best is to go through each sensor with utility tool then let headset adjust on its own for a minute, then look at montage diagram and make adjustments
+      - Important note: X1, X2, and X3 will show up on this diagram but will always be red - no need to do anything about this
+  - If one of the sensors is above a blood vessel, indicated by periodic peaks in the EEG reading, move it just a few millimeters to normalize EEG readings
+  - Take black cable and connect headset to ESP
+  - Make sure to tell participants to sit back on the chair and move as little as possible, not touching sensors, moving around in chair, shuffling feet, moving head, etc. - tell them to use the phone as they normally would, with whatever hand and posture they’re most comfortable with
+    - “Please do not touch any part of the headset. If you feel uncomfortable or want to change something, please let me know by pressing the help tab on the website.”
+
+4. EEG Calibration tasks (10 min):
+  - Type 192.168.31.25:5000 into Chrome app on Android
+  - Input their subject’s subject code (eeg000#) on home page
+  - Have standby monitor EEG for irregularities from another room
+  - Guide subject with what they will have to do for calibration tasks - walk them through the different tabs they will have to go through, reminding them that a proctor will come in between each calibration task and that there is a “Help” tab on top if they need a proctor in the room.
+    - “There are instructions for each task but I will briefly explain them to you now. The first task will be an image test. The image will periodically invert colors. Be sure to focus on an facial feature of your choosing for the duration of the color inversion. Once that finishes, you can move on to the second task, which is an auditory test. Please close your eyes and listen to the tones of the test. Please avoid any unnecessary movements for the duration of the test. I will come back after about 10 minutes to direct you to the next task.”
+  - Return, ask how they are feeling, and explain the next Chatbot task. 
+
+5. Run Experiment (30 minutes):
+  - Have the subject click on chatbot link.
+    - Explain that the bot has a list of questions for them to answer. Tell them that their answers are unimportant, as long as they do their best to type in complete sentences for the entire time period of the test. Tell them to press the help button if they need a proctor for something. “We will be looking at your typing patterns. The more you type, the better data we get. Please type as quickly and accurately as you can, but don’t worry about typos.”
+  - IF PROBLEM WITH DATA:
+    - If triggers aren’t sending, press reset button on ESP. 
+    - “We noticed that one of the sensors is off, so I am here to fix it. *As leaving* “Please try to be careful and not move around too much or touch the sensors.”
+
+6. Subjects Done with Experiment (15 min):
+  - Stop DSI-streamer
+    - In Record tab, click on stop, wait for file to finish exporting, and exit out of the software
+  - Inform subject
+    - “The experiment is complete, thank you for your participation!”
+    - “We will now remove the EEG”
+  - Remove EEG
+    - Hold on/off button until red and green lights flash (~6 seconds) to turn off system
+    - Loosen knobs counterclockwise
+  - Give them monetary compensation
+    - “We can head out now.” 
+      - Confirm that you have the participant’s email on file which you can send Amazon gift card to. 
+    - “Do you have any questions for me before you go?”
+  - Escort them to the door (10 min)
+    - “Thank you so much. Feel free to contact our email if you have any additional questions or concerns. Have a lovely day!”
+  - Have standby clean EEG (5 min)
+    - Use cleaning brush and small amount of cleaning fluid to clean each electrode on the headset
+    - Remove battery and charge immediately in GABA room
+    - Put Android on charger in GABA room and upload data from mindstrong app (Dev tab, upload data); turn screen off, wait for a few minutes, hit upload again
+
+7. Data processing (3 min):
+  - Have standby save and export file to folder labeled with subject code.
+    - Information will be analyzed later, in bulk.
+    - If only dsi file exported, then do the following:
+      - Click on the Advanced tab and click export
+      - Select already existing dsi file labeled with subject code
+      - Allow conversion to occur and transport all files to folder labeled with subject code
+  - Disable Realtime Demo (Dev tab, Disable Realtime Demo)
+  - Turn off phone and don’t use for the rest of the day
+  - Clear log
+
+8. At the end of the day (3 min):
+  - Put binder of consent forms in locked cabinet 
+  - Put all phones on charger
+  - Charge batteries of EEG headset
+  - Ensure EEG headset is off
+  - Charge apple mouse and ensure it is off
