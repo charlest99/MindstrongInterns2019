@@ -1,0 +1,22 @@
+1. Download the questionPose folder in this repo from this folder
+2. Navigate to the questionPose folder in terminal
+3. >> python
+4. >> db.create_all()
+5. >> exit()
+6. Ensure the database chats.db was created properly. this is where chats will log
+7. While connected to EEG network, in the terminal >> python main.py
+8. The site will be live on your ip, port 5000
+9. Once ensuring events from the discovery app are being sent, navigate to the site on the phone
+10. Enter the subject code and navigate the subject to the beginning of the calibration tasks
+11. The site will automatically bring the subject to the audio test after the contrast test. You can view their
+progress in your terminal - the terminal will display when they get to the next task, and if there are any issues or
+if the subject needs help
+12. When the subject switches away from the oddball page, they will get to a "indexPageInstructions.html" template. At this 
+point, enter and explain how to use the chatbot (ie type as much as possible, dont worry about errors, etc)
+13. You can monitor the chatbot's progress from your terminal. You can see the question they are on, as well as how many
+characters they have typed. Once they reach 4000 characters or run out of questions, reenter the room to finish the experiment
+
+NOTES:
+RESTART THE FLASK SERVER (cntrl c to spin down, python main.py to spin up) BETWEEN EACH SUBJECT as this will reset the 
+environment variables
+If the IP of the ESP changes, alter the ip address timestamps are sent to in the oddball and contrast html files
