@@ -58,6 +58,20 @@ subject14  = {'eegFile':'eeg0014_raw.edf', 'logFile':'EEG_0014.csv', 'shiftIndex
 subject15  = {'eegFile':'eeg0015_raw.edf', 'logFile':'EEG_0015.csv', 'shiftIndex':0, 'bias':150, 'badByte':0, 'shft_ind':0}
 #good vep, lots of drift after the initial vep. good audio
 
+subject16  = {'eegFile':'eeg0016_raw.edf', 'logFile':'EEG_0016.csv', 'shiftIndex':0, 'bias':150, 'badByte':0, 'shft_ind':0}
+#ok vep, lots of drift in c3. great audio
+
+subject17  = {'eegFile':'eeg0017_raw.edf', 'logFile':'EEG_0017.csv', 'shiftIndex':0, 'bias':150, 'badByte':0, 'shft_ind':0}
+#bad/no vep, lots of drift after initial 100ms, good audio with lots of drift in F7
+
+subject18  = {'eegFile':'eeg0018_raw.edf', 'logFile':'EEG_0018.csv', 'shiftIndex':0, 'bias':150, 'badByte':0, 'shft_ind':0}
+#ok vep once bias is figured out, good audio once bias is figured out
+
+subject19  = {'eegFile':'eeg0019_raw.edf', 'logFile':'EEG_0019.csv', 'shiftIndex':0, 'bias':150, 'badByte':0, 'shft_ind':0}
+#incredible vep (interesting note, the guy accidentally did the image flip twice... looks really clean)
+#great audio but drift in 01 channel
+
+
 def importFiles(edf, log):
     montage = mne.channels.read_montage('standard_1020')
     edf_file = edf
